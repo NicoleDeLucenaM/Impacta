@@ -1,4 +1,1 @@
 # Impacta
-
-OIOIII
-sou linda
