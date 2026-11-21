@@ -6,3 +6,4 @@ public class EmailDuplicadoException extends Exception {
         super(mensagem);
     }
 }
+
