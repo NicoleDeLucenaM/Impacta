@@ -98,4 +98,18 @@ public class Impacta {
         voluntario.adicionarParticipacao(acao.calcularPontuacao());
         return true;
     }
+
+    public String[] listarVoluntarios(){
+        List<Voluntario> lista = new ArrayList<>(voluntarios.values());
+
+        lista.sort(Comparator.comparingInt(Voluntario::getPontuacaoAcumulada).reversed().thenComparing(Voluntario::getNome));
+
+        String[] resultado = new String[lista.size()];
+
+        for (int item = 0; item < lista.size(); item++) {
+            resultado[item] = lista.get(item).toString();
+        }
+
+        return resultado;
+    }
 }
