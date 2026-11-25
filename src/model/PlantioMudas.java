@@ -16,6 +16,16 @@ public class PlantioMudas extends Acao{
         return 5 + 2 * qtdMudas;
     }
 
+    @Override
+    public String exibirDetalhes() {
+        return "Título: " + getTitulo() +
+                "\n | Descrição: " + getDescricao() +
+                "\n | Data: " + getData() +
+                "\n | Pontuação: " + calcularPontuacao() +
+                "\n | Inscritos: " + getInscritos() +
+                "\n | Mudas: " + qtdMudas;
+    }
+
     public int getQtdMudas() {
         return qtdMudas;
     }
