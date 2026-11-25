@@ -4,8 +4,7 @@ import model.*;
 import exceptions.*;
 
 import java.time.LocalDateTime;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class Impacta {
     private Map<String, Voluntario> voluntarios;
@@ -111,5 +110,13 @@ public class Impacta {
         }
 
         return resultado;
+    }
+
+    public String exibirDetalhesAcao(int idAcao) {
+        Acao acao = acoes.get(idAcao);
+        if (acao == null) {
+            return "Ação não encontrada.";
+        }
+        return acao.exibirDetalhes();
     }
 }
