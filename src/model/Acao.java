@@ -23,6 +23,8 @@ public abstract class Acao {
 
     public abstract int calcularPontuacao();
 
+    public abstract String exibirDetalhes();
+
     public void adicionarInscrito(Voluntario voluntario) {
         inscritos.add(voluntario);
     }
