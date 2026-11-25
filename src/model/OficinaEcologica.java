@@ -18,6 +18,17 @@ public class OficinaEcologica extends Acao{
         return 3 * duracaoHoras + (kitMaterial ? 10:0);
     }
 
+    @Override
+    public String exibirDetalhes() {
+        return "Título: " + getTitulo() +
+                "\n | Descrição: " + getDescricao() +
+                "\n | Data: " + getData() +
+                "\n | Pontuação: " + calcularPontuacao() +
+                "\n | Inscritos: " + getInscritos() +
+                "\n | Duração (h): " + duracaoHoras +
+                "\n | Kit: " + (kitMaterial ? "Sim" : "Não");
+    }
+
     public int getDuracaoHoras() {
         return duracaoHoras;
     }
@@ -26,4 +37,3 @@ public class OficinaEcologica extends Acao{
         return kitMaterial;
     }
 }
-
