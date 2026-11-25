@@ -16,6 +16,16 @@ public class MutiraoReciclagem extends Acao{
         return 4 * duracaoHoras;
     }
 
+    @Override
+    public String exibirDetalhes() {
+        return "Título: " + getTitulo() +
+                "\n | Descrição: " + getDescricao() +
+                "\n | Data: " + getData() +
+                "\n | Pontuação: " + calcularPontuacao() +
+                "\n | Inscritos: " + getInscritos() +
+                "\n | Duração (h): " + duracaoHoras;
+    }
+
     public int getDuracaoHoras() {
         return duracaoHoras;
     }
