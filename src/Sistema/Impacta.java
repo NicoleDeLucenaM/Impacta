@@ -17,10 +17,16 @@ public class Impacta {
         this.proximoId = 1;
     }
 
-    public boolean cadastrarVoluntario(String nome, String email, String matricula) throws EmailDuplicadoException {
+    public boolean cadastrarVoluntario(String nome, String email, String matricula) throws EmailDuplicadoException, MatriculaDuplicadaException {
         if (voluntarios.containsKey(email)) {
             throw new EmailDuplicadoException(email);
         } else {
+            for (Voluntario voluntarioExistente : voluntarios.values()) {
+                if (voluntarioExistente.getMatricula().equals(matricula)) {
+                    throw new MatriculaDuplicadaException(matricula);
+                }
+            }
+
             Voluntario voluntarioNovo = new Voluntario(nome, email, matricula);
             voluntarios.put(email, voluntarioNovo);
             return true;
@@ -83,14 +89,14 @@ public class Impacta {
             return false;
         }
 
-        if (acao.getQuantidadeInscritos() >= acao.getMaxParticipantes()) {
-            throw new AcaoLotadaException(acao.getTitulo());
-        }
-
         for (Voluntario voluntarioInscrito : acao.getInscritos()) {
             if (voluntarioInscrito.getEmail().equals(emailVoluntario)) {
                 throw new InscricaoDuplicadaException(voluntarioInscrito.getNome(), acao.getTitulo());
             }
+        }
+
+        if (acao.getQuantidadeInscritos() >= acao.getMaxParticipantes()) {
+            throw new AcaoLotadaException(acao.getTitulo());
         }
 
         acao.adicionarInscrito(voluntario);
