@@ -1,0 +1,7 @@
+package exceptions;
+
+public class MatriculaDuplicadaException extends Exception {
+    public MatriculaDuplicadaException(String matricula) {
+        super("Já existe um voluntário cadastrado com a matrícula: " + matricula);
+    }
+}
